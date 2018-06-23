@@ -1,0 +1,27 @@
+<div class="contact-profile">
+	<img src="<%= @user ? user.profile_pic : '' %>" alt="" />
+	<p><%= @user.full_name if @user %></p>
+</div>
+<div class="messages" id="conversation">
+	<ul>
+		<% if @history
+			@history.each do |text| %>
+				<li class= "<%= text.belongs_to_admin? ? 'sent' : 'replies' %>">
+					<img src="<%= text.belongs_to_admin? ? Person.admin.profile_pic : text.person.try(:profile_pic) %>" alt="" />
+					<p><%= text.try(:body)%></p>
+				</li>
+			<% end
+		end %>
+	</ul>
+</div>
+
+<div class="message-input">
+	<div class="wrap">
+		<%= form_tag("/send_message", method: "post", remote: true) do %>
+		  <%= text_field_tag :text, nil, placeholder: "Write your message..." %>
+			<%= hidden_field_tag :val, @user ? @user.token : '' , id: "user_id" %>
+			<i class="fa fa-paperclip attachment" aria-hidden="true"></i>
+			<button class="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+		<% end %>
+	</div>
+</div>

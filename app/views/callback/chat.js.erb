@@ -1,0 +1,2 @@
+$("#conversations").html("<%= escape_javascript(render partial: 'callback/conversation_partial', locals: {history: @history, user: @user}) %>");
+$(".messages").animate({ scrollTop: $(document).height() }, "fast");

@@ -1,0 +1,25 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: SaintLBeau_development
+  pool: 5
+  username: postgres
+  password: postgres321
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: SaintLBeau_test
+  pool: 5
+  username: postgres
+  password: postgres321
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: SaintLBeau_production
+  pool: 5
+  username: postgres
+  password: postgres321

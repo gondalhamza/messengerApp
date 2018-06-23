@@ -1,0 +1,4 @@
+// $("#conversation").append("<%= j render partial: 'callback/conversation_partial' %>");
+$('#text').val("")
+$("#conversation").load(location.href+" #conversation>*","");
+$(".messages").animate({ scrollTop: $(document).height() }, "fast");
