@@ -7,10 +7,11 @@ class CallbackController < ApplicationController
   	puts "Iam Here Now==============================================="
   	@history = nil
   	@admin = Person.admin
-  	if params[:rsu]
-  		@user = Person.find_by_id(params[:rsu])
-  		@history = Message.where(senderId: @user.token).or(Message.where(recipientId: @user.token))
-  	end
+  	@user = Person.first
+    if params["page_name"]
+      @user = Person.find_by_id(params["page_name"])
+      @history = Message.where(senderId: @user.token).or(Message.where(recipientId: @user.token))
+    end
   end
 
   def send_message

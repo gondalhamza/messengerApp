@@ -1,5 +1,5 @@
 <div class="contact-profile">
-	<img src="<%= @user ? user.profile_pic : '' %>" alt="" />
+	<img src="<%= @user ? @user.profile_pic : '' %>" alt="" />
 	<p><%= @user.full_name if @user %></p>
 </div>
 <div class="messages" id="conversation">
